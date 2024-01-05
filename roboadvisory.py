@@ -106,11 +106,11 @@ if st.button("ابدأ المقارنة"):
     portfolio_company = highriskporfolio[portfolio_highes].tail(1)[0]
 
     portfolio_beta = highriskporfolio.loc['بيتا'].idxmax()
-    highestbeta = highriskporfolio[portfolio_beta].tail(3)[1]
+    highestbeta = highriskporfolio[portfolio_beta].tail(5)[1]
     portfolio_companybeta = highriskporfolio[portfolio_beta].tail(1)[0]
 
     portfolio_std = highriskporfolio.loc['الانحراف المعياري%'].idxmin()
-    loweststd = highriskporfolio[portfolio_std].tail(4)[1]
+    loweststd = highriskporfolio[portfolio_std].tail(6)[1]
     portfolio_companystd = highriskporfolio[portfolio_std].tail(1)[0]
     st.markdown(f"""
         <ul style="text-align: right; color: #4A4A4A; font-family: 'Amiri', serif; font-size: 18px;">
@@ -120,4 +120,3 @@ if st.button("ابدأ المقارنة"):
         </ul>
     """, unsafe_allow_html=True)
     st.markdown("<br><p style=\"text-align: center; font-family: 'Amiri'; font-size: 30px;\"><a href='https://www.buymeacoffee.com/rayan3rab7' target='_blank'>اذا استفدت من الخدمة يمديك تدفع مقابلها</a></p>", unsafe_allow_html=True)
-
