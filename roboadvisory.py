@@ -50,82 +50,50 @@ if st.button("ابدأ المقارنة"):
     st.line_chart(tamra)
     tamra_mp = np.round(tamra.iloc[-1],2)
     tamrahp_return = np.round((tamra.iloc[-1]/tamra.iloc[0]-1)*100,2)
+    tamrahp_return2023 = np.round((tamra.loc[tamra[tamra.index.year == 2023].index.max()]/tamra.iloc[0]-1)*100,2)
+    tamrahp_return2024 = np.round((tamra.loc[tamra[tamra.index.year == 2024].index.max()]/tamra.loc[tamra[tamra.index.year == 2023].index.max()]-1)*100,2)
     tamrageometric_mean = np.round((((np.prod(1 + tamra.pct_change()))**(trading_days/len(tamra.pct_change()))) - 1)*100,4)
     tamrastandard_deviation = np.round(tamra.pct_change().std()* np.sqrt(trading_days)*100,4)
     tamrabeta = tamra.pct_change().corr()['S&P500']
-    tamrametrics = pd.concat([tamra_mp,tamrahp_return,tamrageometric_mean,tamrastandard_deviation,tamrabeta],axis=1)
-    tamrametrics.columns = ["القيمة السوقية","عائد الاستثمار%", 'المتوسط الهندسي%', 'الانحراف المعياري%','بيتا']
+    tamrametrics = pd.concat([tamra_mp,tamrahp_return,tamrageometric_mean,tamrastandard_deviation,tamrabeta, tamrahp_return2023,tamrahp_return2024],axis=1)
+    tamrametrics.columns = ["القيمة السوقية","عائد الاستثمار%", 'المتوسط الهندسي%', 'الانحراف المعياري%','بيتا',"2023 عائد الاستثمار%","2024 عائد الاستثمار%",]
     st.write(tamrametrics)
 
     st.markdown(grey_line, unsafe_allow_html=True)
     
-    st.line_chart(malaa)
     st.markdown("<p style=\"text-align: right; color: #5C7791; font-family: 'Amiri', serif; font-size: 20px;\">تحليل أداء محافظ  ملاءة التقنية</p>", unsafe_allow_html=True)
     st.markdown("<p style=\"text-align: right; color: #335575; font-family: 'Amiri', serif; font-size: 18px;\">اذا استثمرت في بداية عام 2023  <b>ريال 10,00</b>💸 في محافظ ملاءة التقنية</p>", unsafe_allow_html=True)
+    st.line_chart(malaa)
     malaa_mp = np.round(malaa.iloc[-1],2)
     malaahp_return = np.round((malaa.iloc[-1]/malaa.iloc[0]-1)*100,2)
+    malaahp_return2023 = np.round((malaa.loc[malaa[malaa.index.year == 2023].index.max()]/malaa.iloc[0]-1)*100,2)
+    malaahp_return2024 = np.round((malaa.loc[malaa[malaa.index.year == 2024].index.max()]/malaa.loc[malaa[malaa.index.year == 2023].index.max()]-1)*100,2)    
     malaageometric_mean = np.round((((np.prod(1 + malaa.pct_change()))**(trading_days/len(malaa.pct_change()))) - 1)*100,4)
     malaastandard_deviation = np.round(malaa.pct_change().std()* np.sqrt(trading_days)*100,4)
     malaabeta = malaa.pct_change().corr()['S&P500']
-    malaametrics = pd.concat([malaa_mp,malaahp_return,malaageometric_mean,malaastandard_deviation,malaabeta],axis=1)
-    malaametrics.columns = ["القيمة السوقية","عائد الاستثمار%", 'المتوسط الهندسي%', 'الانحراف المعياري%','بيتا']
+    malaametrics = pd.concat([malaa_mp,malaahp_return,malaageometric_mean,malaastandard_deviation,malaabeta,malaahp_return2023,malaahp_return2024],axis=1)
+    malaametrics.columns = ["القيمة السوقية","عائد الاستثمار%", 'المتوسط الهندسي%', 'الانحراف المعياري%','بيتا',"2023 عائد الاستثمار%","2024 عائد الاستثمار%",]
     st.write(malaametrics)
 
     st.markdown(grey_line, unsafe_allow_html=True)
 
     st.markdown("<p style=\"text-align: right; color: #5C7791; font-family: 'Amiri', serif; font-size: 20px;\">تحليل أداء محافظ ابيان المالية</p>", unsafe_allow_html=True)
     st.markdown("<p style=\"text-align: right; color: #335575; font-family: 'Amiri', serif; font-size: 18px;\">اذا استثمرت في بداية عام 2023  <b>ريال 10,00</b>💸 في محافظ ابيان المالية</p>", unsafe_allow_html=True)
+    st.line_chart(abyan)
     abyan_mp = np.round(abyan.iloc[-1],2)
     abyanhp_return = np.round((abyan.iloc[-1]/abyan.iloc[0]-1)*100,2)
+    abyanhp_return2023 = np.round((abyan.loc[malaa[abyan.index.year == 2023].index.max()]/abyan.iloc[0]-1)*100,2)
+    abyanhp_return2024 = np.round((abyan.loc[abyan[abyan.index.year == 2024].index.max()]/abyan.loc[abyan[abyan.index.year == 2023].index.max()]-1)*100,2)    
     abyangeometric_mean = np.round((((np.prod(1 + abyan.pct_change()))**(trading_days/len(abyan.pct_change()))) - 1)*100,4)
     abyanstandard_deviation = np.round(abyan.pct_change().std()* np.sqrt(trading_days)*100,4)
     abyanbeta = abyan.pct_change().corr()['S&P500']
-    abyanmetrics = pd.concat([abyan_mp,abyanhp_return,abyangeometric_mean,abyanstandard_deviation,abyanbeta],axis=1)
-    abyanmetrics.columns = ["القيمة السوقية","عائد الاستثمار%", 'المتوسط الهندسي%', 'الانحراف المعياري%','بيتا']
+    abyanmetrics = pd.concat([abyan_mp,abyanhp_return,abyangeometric_mean,abyanstandard_deviation,abyanbeta,abyanhp_return2023,abyanhp_return2024],axis=1)
+    abyanmetrics.columns = ["القيمة السوقية","عائد الاستثمار%", 'المتوسط الهندسي%', 'الانحراف المعياري%','بيتا',"2023 عائد الاستثمار%","2024 عائد الاستثمار%",]
     st.write(abyanmetrics)
-    st.line_chart(abyan)
-
-    # with st.expander("القيمة السوقية"):
-    #     st.markdown("""
-    #     <div style="color: #335575; text-align: right;">
-    #     القيمة السوقية: تعبر عن قيمة استثمارك اليوم
-    #     كما هو موضح في المقارنة. قمنا بافتراض أنك قد قمت بالاستثمار بمبلغ 10,000 ريال في إحدى هذه المحافظ
-    #     وتُظهر القيمة السوقية كم تكون قيمة هذا الاستثمار اليوم
-    #     إذا ارتفعت القيمة فوق 10,000 ريال، يعني ذلك أنك حققت ربحًا، وإذا انخفضت دون 10,000 ريال، يعني ذلك أنك تكبدت خسارة.
-    #     </div>
-    #     """, unsafe_allow_html=True)
-
-    # with st.expander("عائد الاستثمار"):
-    #             st.markdown("""
-    #     <div style="color: #335575; text-align: right;">
-    #     عائد الاستثمار في فترة الاستثمار" يشير إلى العائد الذي يُحقق على الاستثمار خلال فترة زمنية محددة
-    #     يُستخدم لقياس كمية العائد أو الربح (أو الخسارة) التي تحققها استثماراتك خلال فترة معينة
-    #     على سبيل المثال:
-    #     إذا استثمرت 10000 ريال في محفظة وزادت قيمتها إلى 11,000 ريال خلال شهر واحد، فإن عائد الاستثمار خلال هذا الشهر سيكون 10٪
-    #             </div>
-    #             """, unsafe_allow_html=True)
-    # with st.expander("المتوسط الهندسي"):
-    #             st.markdown("""
-    #             <div style="color: #335575;">
-
-    #             </div>
-    #             """, unsafe_allow_html=True)
-    # with st.expander("الانحراف المعياري"):
-    #             st.markdown("""
-    #             <div style="color: #335575;">
-
-    #             </div>
-    #             """, unsafe_allow_html=True)
-    # with st.expander("بيتا "):
-    #             st.markdown("""
-    #             <div style="color: #335575;">
-
-    #             </div>
-    #             """, unsafe_allow_html=True)
 
     st.markdown(grey_line, unsafe_allow_html=True)
  
-    st.markdown("<p style=\"text-align: right; font-family: 'Amiri', serif; font-size: 20px;\">مقارنة المحافظ ذات الاعلى مخاطر في كل شركة/p>", unsafe_allow_html=True)
+    st.markdown("<p style=\"text-align: right; font-family: 'Amiri', serif; font-size: 20px;\">مقارنة المحافظ ذات الاعلى مخاطر في كل شركة</p>", unsafe_allow_html=True)
     st.markdown("<p style=\"text-align: right; font-family: 'Amiri', serif; font-size: 18px;\">لأن منصات الاستثمار الآلي مناسبة للذين يخططون للاستثمار على المدى الطويل(10+ سنوات)، سأقوم بمقارنة بين المحافظ عالية المخاطر لان كلما زادت الفترة الزمنية للاستثمار، زادت قدرتك على تحمل المخاطر </p>", unsafe_allow_html=True)
 
     highriskporfolio = pd.concat([tamrametrics.iloc[0],malaametrics.iloc[0], abyanmetrics.iloc[0]],axis=1).T
@@ -151,5 +119,5 @@ if st.button("ابدأ المقارنة"):
             المحفظة ذات أقل انحراف معياري هي المحفظة <b>{portfolio_std}</b> يساوي %<b>{loweststd}</b> المقدمة من <b>{portfolio_companystd}</b><br>
         </ul>
     """, unsafe_allow_html=True)
-    st.markdown("<br><p style=\"text-align: center; font-family: 'Amiri'; font-size: 30px;\"><a href='https://www.buymeacoffee.com/rayan3rab7' target='_blank'>اذا استفدت من الخدمة يمديك تدفع مقابلها عن طريق شراء قهوة</a></p>", unsafe_allow_html=True)
+    st.markdown("<br><p style=\"text-align: center; font-family: 'Amiri'; font-size: 30px;\"><a href='https://www.buymeacoffee.com/rayan3rab7' target='_blank'>اذا استفدت من الخدمة يمديك تدفع مقابلها</a></p>", unsafe_allow_html=True)
 
