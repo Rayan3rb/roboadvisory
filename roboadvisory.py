@@ -46,7 +46,7 @@ if st.button("ابدأ المقارنة"):
     st.markdown(grey_line, unsafe_allow_html=True)    
 
     st.markdown("<p style=\"text-align: right; color: #5C7791; font-family: 'Amiri', serif; font-size: 20px;\">تحليل أداء محافظ تمرة المالية</p>", unsafe_allow_html=True)
-    st.markdown("<p style=\"text-align: right; color: #335575; font-family: 'Amiri', serif; font-size: 18px;\">اذا استثمرت في بداية عام 2023  <b>ريال 10,00</b>💸 في محافظ تمرة المالية</p>", unsafe_allow_html=True)
+    st.markdown("<p style=\"text-align: right; color: #335575; font-family: 'Amiri', serif; font-size: 18px;\">اذا استثمرت في بداية عام 2023  <b>ريال 10,000</b>💸 في محافظ تمرة المالية</p>", unsafe_allow_html=True)
     st.line_chart(tamra)
     tamra_mp = np.round(tamra.iloc[-1],2)
     tamrahp_return = np.round((tamra.iloc[-1]/tamra.iloc[0]-1)*100,2)
@@ -62,7 +62,7 @@ if st.button("ابدأ المقارنة"):
     st.markdown(grey_line, unsafe_allow_html=True)
     
     st.markdown("<p style=\"text-align: right; color: #5C7791; font-family: 'Amiri', serif; font-size: 20px;\">تحليل أداء محافظ  ملاءة التقنية</p>", unsafe_allow_html=True)
-    st.markdown("<p style=\"text-align: right; color: #335575; font-family: 'Amiri', serif; font-size: 18px;\">اذا استثمرت في بداية عام 2023  <b>ريال 10,00</b>💸 في محافظ ملاءة التقنية</p>", unsafe_allow_html=True)
+    st.markdown("<p style=\"text-align: right; color: #335575; font-family: 'Amiri', serif; font-size: 18px;\">اذا استثمرت في بداية عام 2023  <b>ريال 10,000</b>💸 في محافظ ملاءة التقنية</p>", unsafe_allow_html=True)
     st.line_chart(malaa)
     malaa_mp = np.round(malaa.iloc[-1],2)
     malaahp_return = np.round((malaa.iloc[-1]/malaa.iloc[0]-1)*100,2)
@@ -78,7 +78,7 @@ if st.button("ابدأ المقارنة"):
     st.markdown(grey_line, unsafe_allow_html=True)
 
     st.markdown("<p style=\"text-align: right; color: #5C7791; font-family: 'Amiri', serif; font-size: 20px;\">تحليل أداء محافظ ابيان المالية</p>", unsafe_allow_html=True)
-    st.markdown("<p style=\"text-align: right; color: #335575; font-family: 'Amiri', serif; font-size: 18px;\">اذا استثمرت في بداية عام 2023  <b>ريال 10,00</b>💸 في محافظ ابيان المالية</p>", unsafe_allow_html=True)
+    st.markdown("<p style=\"text-align: right; color: #335575; font-family: 'Amiri', serif; font-size: 18px;\">اذا استثمرت في بداية عام 2023  <b>ريال 10,000</b>💸 في محافظ ابيان المالية</p>", unsafe_allow_html=True)
     st.line_chart(abyan)
     abyan_mp = np.round(abyan.iloc[-1],2)
     abyanhp_return = np.round((abyan.iloc[-1]/abyan.iloc[0]-1)*100,2)
